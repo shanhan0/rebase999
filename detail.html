@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        O&#771;	哈哈哈99999999999999999999999999
+        <span>a&#768; a</span>
+    </div>&#8719;	
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div style='width:10000px'>999999999999</div>
+    <script>
+        function showTop  () {
+    var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+　　console.log('滚动条位置：' + scrollTop);
+}
+window.onscroll  = showTop
+        var arrs = [
+            {sign_org_name: '童佳颖', month: 1, sign_org_full_id: '1/5/56', value:8888 },
+            {sign_org_name: '童佳颖', month: 2, sign_org_full_id: '1/5/56', value:99999 },
+            {sign_org_name: '童佳颖', month: 3, sign_org_full_id: '1/5/56', value:2 },
+            {sign_org_name: '童佳颖', month: 3, sign_org_full_id: '1/5/56', value:2 },
+            {sign_org_name: '童佳颖', month: 4, sign_org_full_id: '1/5/56', value:2 },
+            {sign_org_name: '童佳颖', month: 5, sign_org_full_id: '1/5/56', value:2 },
+            {sign_org_name: '童佳颖', month: 6, sign_org_full_id: '1/5/56', value:2 },
+            {sign_org_name: '童佳颖', month: 7, sign_org_full_id: '1/5/56', value:2 },
+            {sign_org_name: '童佳颖', month: 8, sign_org_full_id: '1/5/56', value:2 },
+            {sign_org_name: '童佳颖', month: 9, sign_org_full_id: '1/5/56', value:2 },
+            {sign_org_name: '童佳颖', month: 10, sign_org_full_id: '1/5/56', value:2 },
+            {sign_org_name: '童佳颖', month: 11, sign_org_full_id: '1/5/56', value:2 },
+            {sign_org_name: '童佳颖', month: 12, sign_org_full_id: '1/5/56', value:2 },
+            {sign_org_name: '张美佳', month: 2, sign_org_full_id: '1/88/96', value:88 },
+            {sign_org_name: '张美佳', month: 3, sign_org_full_id: '1/88/96', value:88 },
+            {sign_org_name: '张美佳', month: 6, sign_org_full_id: '1/88/96', value: 99 }
+
+        ]
+        reduceFun(arrs)
+        function  reduceFun(arr){
+            var flagArr =
+                {January: 1,February: 2,March: 3, April: 4, May: 5, June: 6, July: 7, August: 8,September: 9,October: 10
+                ,November: 11,December: 12
+                }
+                      
+
+           //  [{name:'哈哈', one: '1', two: '2', three: '3'}]
+           var temp = {}, Arr = []
+            for (var i in arr) {
+                var key = arr[i].sign_org_full_id; //Operator
+                if (temp[key]) {
+                   var keyArr =   Object.keys(flagArr)
+                   var valuesArr = [...Object.values(flagArr)]
+                   var count = 0
+                    valuesArr.forEach((v,index)=>{
+             
+                        if(v == arr[i].month){
+                      
+                        //    count += arr[i].value;
+                             temp[key][keyArr[index]] = arr[i].value
+                            
+                        }
+                       })
+                      
+                   
+                   
+                    temp[key].sign_org_full_id = arr[i].sign_org_full_id;
+        
+                    temp[key].sign_org_name = arr[i].sign_org_name; //收费员姓名 OperatorName
+                
+                   
+                } else {
+                    temp[key] = {};
+                    temp[key].month =arr[i].month;
+                    temp[key].sign_org_full_id = arr[i].sign_org_full_id;
+                    temp[key].sign_org_name = arr[i].sign_org_name;
+                    var keyArr =   Object.keys(flagArr)
+                    var valuesArr = [...Object.values(flagArr)]
+                    valuesArr.forEach((v,index)=>{
+                        if(v == arr[i].month){
+                        //     console.log(v,333)
+                        //    count += arr[i].value;
+                             temp[key][keyArr[index]] = arr[i].value
+                        }
+                       })
+                  
+//                     temp[key].value += Number(arr[i].value);
+
+                }
+            }
+            var newArry = [];
+            for (var k in temp) {
+            newArry.push(temp[k])
+            }
+            console.log(temp,newArry,'5967895796')
+    }
+
+
+
+/*
+转驼峰
+*/
+function tansform(str){
+    var re = /-(\w)/g;
+    return str.replace(re,function($0,$1){//replace 中正则表达式$0,$1,$n等代表正则表达式内小括号的匹配值，从$1开始，$0代表正则表达式的整体值
+        return $1.toUpperCase(); //s0:匹配到的正则，$1是小括号匹配到的
+    });
+}
+var str = 'border-left-color';
+console.log(tansform(str));//borderLeftColor
+
+// var name = "Doe, John";//replace不更改原字符
+// console.log(name.replace(/(\w+)\s*, \s*(\w+)/, "$2 $1")); //John Doe
+
+
+var name = 'aaa bbb ccc';
+var uw=name.replace(/\b\w+\b/g, function(word){
+  return word.substring(0,1).toUpperCase()+word.substring(1);}
+  );
+console.log(uw)
+
+    </script>
+</body>
+</html>
